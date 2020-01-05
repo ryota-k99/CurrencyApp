@@ -71,7 +71,7 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
                        countryLabel.text = "1\(country)"
                    }
                }else {
-                    currencyLabel.text = "Bitcoin Price not available"
+                    currencyLabel.text = "Price not available"
                }
                
            }
