@@ -16,7 +16,7 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var countryPicker: UIPickerView!
     
-    let url = "http://apilayer.net/api/live?access_key=03dc4253384ee909ede5a0af5b62edde&currencies="
+    let url = "http://apilayer.net/api/live?access_key=03dc4rencies="
     let countryArray = ["JPY","AUD","SGD","NZD","USD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","MXN","NOK","PLN","RON","RUB","SEK","ZAR"]
     
     var country = ""
