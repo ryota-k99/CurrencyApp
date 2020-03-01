@@ -16,8 +16,10 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var countryPicker: UIPickerView!
     
-    let url = "http://apilayer.net/api/live?access_key=03dc4rencies="
-    let countryArray = ["JPY","AUD","SGD","NZD","USD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","MXN","NOK","PLN","RON","RUB","SEK","ZAR"]
+    @IBOutlet weak var alartLabel: UILabel!
+    
+    let url = "http://apilayer.net/api/live?access_key=03dc4253384ee909ede5a0af5b62edde&currencies="
+    let countryArray = ["--国を選択してください--","JPY","AUD","SGD","NZD","USD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","MXN","NOK","PLN","RON","RUB","SEK","ZAR"]
     
     var country = ""
     
@@ -34,14 +36,24 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if countryArray[row]==countryArray[0]{
+            alartLabel.isHidden = false
+            alartLabel.text = "国を選択してください"
+            countryLabel.text = "--"
+            currencyLabel.text = "--"
+            
+        }else{
         country = countryArray[row]
         getPrice(url: url)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         countryPicker.delegate = self
         countryPicker.dataSource = self
+        
+        alartLabel.isHidden = true
     }
     
     func getPrice(url: String){
